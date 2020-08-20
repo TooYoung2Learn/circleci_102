@@ -1,4 +1,4 @@
-ersion: 2
+version: 2
 jobs:
   build:
     docker:
@@ -19,4 +19,7 @@ workflows:
   build_and_test:
     jobs:
       - build
-      - test
+      - test:
+          # only run this job if build succeeds
+          requires:
+            - build 
